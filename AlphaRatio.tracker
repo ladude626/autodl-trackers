@@ -45,7 +45,7 @@
 	</servers>
 
 	<parseinfo>
-		<linepatterns>
+		<multilinepatterns>
 			<extract>
 				<!--[New Release]-[AppsPC]-[Spice_Road_v1.002-FAS]-[URL]-[ https://alpharatio.cc/torrents.php?id=3273 ]-[ 3265 ]-[ Uploaded 53 Secs after pre. ]-->
 				<!--[New Release]-[AppsMAC]-[Angvik_v1.4_MacOSX-SPLATTER]-[URL]-[ https://alpharatio.cc/torrents.php?id=3280 ]-[ 3272 ]-[ Uploaded 14 Mins, 12 Secs after pre. ]-->
@@ -59,6 +59,23 @@
 				</vars>
 			</extract>
 			<extract>
+				<!--[AutoDL]-[TvPackHD]-[599208]-[ 0 | 261526 | 1 | 0 ]-[Orange.Is.the.New.Black.S05.2160p.NF.WEBRip.DD5.1.x264-NTb]-->
+				<!--[scene | size(mb) | freeleech | uploader ]-->
+				<!--<regex value= ^\[AutoDL\]-\[(\S+)\]-\[(\S+)\]-\[ (\S+) \| (\S+) \| (\S+) \| (\S+) \]-\[(\S+)\]"/>-->
+				<regex value= ^\[AutoDL\]-\[(\S+)\]-\[.*\]-\[ (\S+) \| (\S+) \| (\S+) \| (\S+) \]-\[(\S+)\]"/>
+				<vars>
+					<var name="category"/>
+					<!--<var name="$torrentId"/>-->
+					<var name="scene">
+					<var name="torrentSize"/>
+					<var name="freeleech">
+					<var name="uploader"/>
+					<var name="torrentName"/>
+				</vars>
+			</extract>
+		</multilinepatterns>
+		<multilinepatterns>
+			<extract>
 				<!--[New Release]-[MovieHD]-[The Hobbit Desolation Of Smaug 2013 1080p Bluray DTS x264 - SiMPLE]-[URL]-[ https://alpharatio.cc/torrents.php?id=3822 ]-[ 3807 ]-->
 				<regex value= "^\[New Release\]-\[(\S+)\]-\[(.+)\]-\[URL\]-\[ https?\:\/\/([^\/]+\/).*[&amp;\?]id=\d+.*\[\s*(\d+) \]"/>
 				<vars>
@@ -68,7 +85,22 @@
 					<var name="$torrentId"/>
 				</vars>
 			</extract>
-		</linepatterns>
+			<extract>
+				<!--[AutoDL]-[TvPackHD]-[599208]-[ 0 | 261526 | 1 | 0 ]-[Orange.Is.the.New.Black.S05.2160p.NF.WEBRip.DD5.1.x264-NTb]-->
+				<!--[scene | size(mb) | freeleech | uploader ]-->
+				<!--<regex value= ^\[AutoDL\]-\[(\S+)\]-\[(\S+)\]-\[ (\S+) \| (\S+) \| (\S+) \| (\S+) \]-\[(\S+)\]"/>-->
+				<regex value= ^\[AutoDL\]-\[(\S+)\]-\[.*\]-\[ (\S+) \| (\S+) \| (\S+) \| (\S+) \]-\[(\S+)\]"/>
+				<vars>
+					<var name="category"/>
+					<!--<var name="$torrentId"/>-->
+					<var name="scene">
+					<var name="torrentSize"/>
+					<var name="freeleech">
+					<var name="uploader"/>
+					<var name="torrentName"/>
+				</vars>
+			</extract>
+		</multilinepatterns>
 		<linematched>
 			<var name="torrentUrl">
 				<string value="https://"/>
